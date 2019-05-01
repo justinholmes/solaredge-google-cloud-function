@@ -1,0 +1,4 @@
+requests==2.19.0
+solaredge==0.0.2
+arrow
+google-cloud-storage
