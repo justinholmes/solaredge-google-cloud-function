@@ -9,8 +9,9 @@ api_key = os.environ.get("solaredge_api_key")
 solaredge_api = solaredge.Solaredge(api_key)
 site_id = os.environ.get("solaredge_id")
 site_energy_date = arrow.now().format('YYYY-MM-DD')
-site_power_start_date = arrow.now().replace(days=-1).format('YYYY-MM-DD hh:mm:ss')
-site_power_end_date = arrow.now().replace().format('YYYY-MM-DD hh:mm:ss')
+date_and_hour = 'YYYY-MM-DD hh:mm:ss'
+site_power_start_date = arrow.now().replace(days=-1).format(date_and_hour)
+site_power_end_date = arrow.now().replace().format(date_and_hour)
 
 
 def get_energy():
