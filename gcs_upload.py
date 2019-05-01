@@ -8,6 +8,6 @@ bucket = client.get_bucket(os.environ.get('gcs_bucket'))
 compressobj = zlib.compressobj(9, zlib.DEFLATED, 31)
 
 def upload(date, blob_data):
-    blob = bucket.blob("ingestion/solaredge/{}/data.json".format(date))
+    blob = bucket.blob("ingestion/solaredge/{}/data.json.gz".format(date))
     blob.content_encoding = 'gzip'
-    blob.upload_from_string(compressobj.compress(blob_data) + compressobj.flush())
+    blob.upload_from_string(compressobj.compress(blob_data.encode()) + compressobj.flush())
