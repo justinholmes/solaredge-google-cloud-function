@@ -1,8 +1,8 @@
 from google.cloud import storage
 import os
 
-client = storage.Client(project=os.environ('GCP_PROJECT'))
-bucket = client.get_bucket(os.environ('gcs_bucket'))
+client = storage.Client(project=os.environ.get('GCP_PROJECT'))
+bucket = client.get_bucket(os.environ.get('gcs_bucket'))
 
 
 def upload(date, blob_data):
